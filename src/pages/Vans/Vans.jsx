@@ -1,10 +1,11 @@
 import "./Vans.css"
-import { useSearchParams } from "react-router-dom"
+import { useLoaderData, useSearchParams } from "react-router-dom"
 import VansList from "/src/components/VansList"
 
 
-export default function Vans({ vans }) {
+export default function Vans() {
   const [searchParams, setSearchParams] = useSearchParams()
+  const vans = useLoaderData()
 
   return (
     <div className="van-list-container">

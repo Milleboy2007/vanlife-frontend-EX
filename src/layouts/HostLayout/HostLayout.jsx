@@ -1,7 +1,7 @@
 import { Link, Outlet } from "react-router-dom";
 import "./HostLayout.css"
 
-export default function HostLayout() {
+export default function HostLayout({user, hostVans}) {
 
 
   return (
@@ -18,7 +18,7 @@ export default function HostLayout() {
         </Link>
       </nav>
 
-      <Outlet />
+      <Outlet context={{hostVans: hostVans, user: user}}/>
     </>
 
   )
