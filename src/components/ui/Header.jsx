@@ -1,24 +1,19 @@
-import { NavLink, Link, Form } from "react-router-dom"
+import { Link } from "react-router-dom"
 import "./Header.css"
 
 export default function Header({ user }) {
-
-  const linkClassName = ({ isActive }) => isActive ? "nav-button active" : "nav-button"
 
   return (
     <header>
       <Link className="site-logo" to="/">#VanLife</Link>
       <nav>
-        <NavLink className={linkClassName} to="/about">About</NavLink>
-        <NavLink className={linkClassName} to="/vans">Vans</NavLink>
+        <Link to="/about" className="nav-button" >About</Link>
+        <Link to="/vans" className="nav-button">Vans</Link>
 
-        <Link className="nav-button" to={user ? "/host" : "/login"}>
-          {user ? user.name : "Login"}
+        <Link className="nav-button" to="/host/dashboard">
+          {user.name}
         </Link>
-
-        {user &&
-          <button className="nav-button" type="submit">Logout</button>
-        }
+        <button className="nav-button" type="submit">Logout</button>
       </nav>
     </header>
   )

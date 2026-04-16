@@ -3,20 +3,19 @@ import "./HostLayout.css"
 
 export default function HostLayout() {
 
-  const linkClassName = ({ isActive }) => isActive ? "nav-button active" : "nav-button"
 
   return (
     <>
       <nav className="host-nav">
-        <NavLink to="/host/dashboard" className={linkClassName}>
+        <Link to="/host/dashboard" className="nav-button">
           Dashboard
-        </NavLink>
-        <NavLink to="/host/income" className={linkClassName}>
+        </Link>
+        <Link to="/host/income" className="nav-button">
           Income
-        </NavLink>
-        <NavLink to="/host/reviews" className={linkClassName}>
+        </Link>
+        <Link to="/host/reviews" className="nav-button">
           Reviews
-        </NavLink>
+        </Link>
       </nav>
 
       <Outlet />
