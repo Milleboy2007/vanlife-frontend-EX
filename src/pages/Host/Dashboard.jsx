@@ -1,10 +1,10 @@
-import { Link, NavLink, useOutletContext } from "react-router-dom"
+import { Link, NavLink, useLoaderData } from "react-router-dom"
 import { BsStarFill } from "react-icons/bs"
 import HostVansList from "../../components/HostVanList"
 import "./Dashboard.css"
 
 export default function Dashboard() {
-  const {user, hostVans} = useOutletContext()
+  const {user, vans} = useLoaderData()
 
   return (
     <>
@@ -33,7 +33,7 @@ export default function Dashboard() {
         <div className="top">
           <h2>Your listed vans</h2>
         </div>
-        <HostVansList vans={hostVans} />
+        <HostVansList vans={vans} />
       </section>
     </>
 

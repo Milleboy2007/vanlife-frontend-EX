@@ -2,8 +2,8 @@ import { redirect } from "react-router-dom"
 import { getCurrentUser } from "./api"
 
 export async function requireAuth(request) {
-  const pathname = new URL(request.url).pathname
-  const message = "You must log in first!"
+  //const pathname = new URL(request.url).pathname
+  //const message = "You must log in first!"
 
   try {
     return await getCurrentUser()
@@ -11,6 +11,7 @@ export async function requireAuth(request) {
     if (error.status !== 401) {
       throw error
     }
-    throw redirect(`/login?redirectTo=${pathname}&message=${message}`)
+    //`/login?redirectTo=${pathname}&message=${message}`
+    throw redirect("/login")
   }
 }

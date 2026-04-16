@@ -16,7 +16,6 @@ import {
 } from "./pages"
 
 // Mock data
-import { vansData, usersData } from "./assets/mock-data"
 import MainLayout from './layouts/MainLayout/MainLayout'
 import HostLayout from './layouts/HostLayout/HostLayout'
 import vansLoader from "./loaders/vans.loader"
@@ -25,11 +24,10 @@ import { loginAction } from "./action/login.action"
 import loginLoader from "./loaders/login.loader"
 import logoutAction from "./action/logout.action"
 import mainLayoutLoader from "./loaders/main-layout.loader"
+import hostDashboardLoader from "./loaders/host-dashboard.loader"
+import authLoader from "./loaders/auth.loader"
 
 function App() {
-  const [user] = useState(usersData[0])
-  const [vans] = useState(vansData)
-  const hostVans = vans.filter(van => van.hostId === user.id)
 
   const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={<MainLayout />} loader={mainLayoutLoader} >
@@ -41,10 +39,10 @@ function App() {
       <Route path="vans" element={<Vans />} loader={vansLoader}/>
       <Route path="vans/:id" element={<VanDetail />} loader={vanDetailLoader}/>
 
-      <Route path="/host" element={<HostLayout hostVans={hostVans} user={user}/>}>
-        <Route index element={<Dashboard />}/>
-        <Route path="income" element={<Income />}/>
-        <Route path="reviews" element={<Reviews />}/>
+      <Route path="/host" element={<HostLayout/>} >
+        <Route index element={<Dashboard />} loader={hostDashboardLoader}/>
+        <Route path="income" element={<Income />} loader={authLoader}/>
+        <Route path="reviews" element={<Reviews />} loader={authLoader}/>
       </Route>
 
       <Route path="*" element={<NotFound />} />
