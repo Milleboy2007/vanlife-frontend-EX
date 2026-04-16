@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import "./HostLayout.css"
 
 export default function HostLayout() {
@@ -7,7 +7,7 @@ export default function HostLayout() {
   return (
     <>
       <nav className="host-nav">
-        <Link to="/host/dashboard" className="nav-button">
+        <Link to="." className="nav-button">
           Dashboard
         </Link>
         <Link to="/host/income" className="nav-button">
