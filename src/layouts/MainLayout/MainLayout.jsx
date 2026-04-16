@@ -1,10 +1,11 @@
 import "./MainLayout.css"
-import { Outlet } from "react-router-dom"
+import { Outlet, useLoaderData } from "react-router-dom"
 import Header from "/src/components/ui/Header"
 import Footer from "/src/components/ui/Footer"
 
 
-export default function MainLayout({ user }) {
+export default function MainLayout() {
+  const {user} = useLoaderData()
 
   return (
     <div className="site-wrapper">
